@@ -1,6 +1,6 @@
-# Musig Server
+# musig_server
 
-### Dependencies used by this project
+### Dependences used by this project
 
 * [secp256k1-zkp](https://github.com/BlockstreamResearch/secp256k1-zkp) - A fork of libsecp256k1 with support for advanced and experimental features such as Confidential Assets and MuSig2 
 * [OpenSSL](https://github.com/openssl/openssl) - TLS/SSL and crypto library 
@@ -14,10 +14,22 @@
 * Install Crow Cpp
 * Download and build secp256k1-zkp
 
-`g++ -std=c++20  server/musig_server.cpp lib/musig_lib.cpp utils/strencodings.cpp  ../secp256k1-zkp/.libs/libsecp256k1.a -I ../secp256k1-zkp/include -lgmp  -lcrypto -o musig_server_bin`
+Run the g++ or Cmake commands below.
 
-`.\musig_server_bin`
+```bash
+$ g++ -std=c++20  server/musig_server.cpp lib/musig_lib.cpp utils/strencodings.cpp  ../secp256k1-zkp/.libs/libsecp256k1.a -I ../secp256k1-zkp/include -lgmp  -lcrypto -o musig_server_bin
 
-`g++ -std=c++20 client.cpp lib/musig_lib.cpp utils/strencodings.cpp fmt/format.cc  ../secp256k1-zkp/.libs/libsecp256k1.a -I ../secp256k1-zkp/include -lgmp -lcrypto -lcpr -lcurl -o musig_client_bin`
+$ ./musig_server_bin
 
-`.\musig_client_bin execute-complete-scheme`
+$ g++ -std=c++20 client.cpp lib/musig_lib.cpp utils/strencodings.cpp fmt/format.cc  ../secp256k1-zkp/.libs/libsecp256k1.a -I ../secp256k1-zkp/include -lgmp -lcrypto -lcpr -lcurl -o musig_client_bin
+
+$ ./musig_client_bin execute-complete-scheme
+```
+
+or
+
+```bash
+cd build
+cmake ..
+make
+```
